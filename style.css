@@ -1,15 +1,20 @@
+html,
 body {
   width: 100%;
-  margin: 0;
+  height: 100%;
+}
+
+body {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin: 0;
 }
 
 canvas {
-  border: 2px solid grey;
+  transform: scale(2);
+  background-color: #52c0a7;
 }
-
 
 /* Bali Colors: 
 - orange #d44601

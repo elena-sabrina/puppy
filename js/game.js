@@ -4,7 +4,7 @@ class Game {
     this.context = canvas.getContext("2d");
     this.gravity = 10;
     this.puppy = new Puppy(this);
-    this.obsticals = [];
+    this.obsticalArray = [];
     this.keyboardController = new KeyboardController(this);
     this.keyboardController.setKeyBindings();
   }
@@ -28,27 +28,29 @@ class Game {
     }
   }
 
-  /*addObstical() {
-    const obstical = new Obstical(this, 50, 50, 50, 50);
-    this.obsticals.push(obstical);
+  addObstical() {
+    const obstical = new Obstical(this, canvasElement.width, 10, 40, 20);
+    this.obsticalArray.push(obstical);
     console.log("obstical added");
-  }*/
-
-  runLogic() {
-    this.clear();
-    this.addGravity();
-    //this.addObstical();
   }
 
-  clear() {
+  clear(){
     this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
+  }
+
+  runLogic() {
+    this.addGravity();
+    this.addObstical();
+    for (let obstical of this.obsticalArray) {
+      obstical.runLogic();
+    }
   }
 
   draw() {
     this.clear();
+    for (let obstical of this.obsticalArray) {
+      obstical.draw();
+    }
     this.puppy.draw();
-    /*for (let obstical of this.obsticals) {
-      obsticals.draw();
-    }*/
   }
 }
