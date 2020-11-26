@@ -1,0 +1,20 @@
+body {
+  width: 100%;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+canvas {
+  border: 2px solid grey;
+}
+
+
+/* Bali Colors: 
+- orange #d44601
+- red #5c0d09
+- dark green #177263
+- light green #52c0a7
+- brown #dbc6ae
+
