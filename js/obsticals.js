@@ -8,8 +8,10 @@ class Obstical {
   }
 
   runLogic() {
-    this.x -= 1;
+    this.x -= 0.4;
   }
+
+  
 
   draw() {
     this.game.context.fillStyle = "#dbc6ae";

@@ -10,10 +10,15 @@ class Puppy {
       y: 20
     };
     this.speed = {
-      x: 0,
+      x: -0.4,
       y: 0
     };
   }
+
+  
+
+ 
+    
 
   draw() {
     this.game.context.fillStyle = "black";
