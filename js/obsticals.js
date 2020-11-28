@@ -5,14 +5,15 @@ class Obstical {
     this.y = y;
     this.width = width;
     this.height = height;
+    this.color = "#dbc6ae";
   }
 
   runLogic() {
-    this.x -= 0.4;
+    this.x -= 0.5;
   }
 
   draw() {
-    this.game.context.fillStyle = "#dbc6ae";
+    this.game.context.fillStyle = this.color;
     this.game.context.fillRect(this.x, this.y, this.width, this.height);
   }
 }
