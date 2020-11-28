@@ -13,6 +13,7 @@ class Puppy {
       x: -0.4,
       y: 0
     };
+    this.color = "black";
   }
 
   
@@ -21,7 +22,7 @@ class Puppy {
     
 
   draw() {
-    this.game.context.fillStyle = "black";
+    this.game.context.fillStyle = this.color;
     this.game.context.fillRect(
       this.position.x,
       this.position.y,

@@ -11,15 +11,8 @@ class Obstical {
     this.x -= 0.4;
   }
 
-  
-
   draw() {
     this.game.context.fillStyle = "#dbc6ae";
-    this.game.context.fillRect(
-      this.x,
-      this.y,
-      this.width,
-      this.height
-      );
+    this.game.context.fillRect(this.x, this.y, this.width, this.height);
   }
 }
