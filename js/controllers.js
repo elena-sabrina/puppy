@@ -5,20 +5,24 @@ class KeyboardController {
 
   setKeyBindings() {
     window.addEventListener("keydown", (event) => {
-      switch (event.key) {
-        case "ArrowUp":
-          this.game.puppy.position.y -= 40;
-          this.game.puppy.food -= 1;
-          break;
-        case "ArrowLeft":
-          this.game.puppy.position.x -= 20;
-          this.game.puppy.food -= 1;
-          break;
-        case "ArrowRight":
-          this.game.puppy.position.x += 20;
-          this.game.puppy.food -= 1;
-          break;
+      if (this.game.puppy.x > 0 && this.game.puppy.x < canvasElement.width) {
+        switch (event.key) {
+          case "ArrowUp":
+            this.game.puppy.y -= 40;
+            this.game.puppy.food -= 1;
+            break;
+          case "ArrowLeft":
+            this.game.puppy.x -= 20;
+            this.game.puppy.food -= 1;
+            break;
+          case "ArrowRight":
+            this.game.puppy.x += 20;
+            this.game.puppy.food -= 1;
+            break;
+        }
       }
     });
   }
+
+  //stopDoubleJump (){}
 }

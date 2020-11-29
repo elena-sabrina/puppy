@@ -10,6 +10,7 @@ class Game {
     this.keyboardController = new KeyboardController(this);
     this.keyboardController.setKeyBindings();
     this.previousObsticaltiming = 0;
+    this.previousFoodtiming = 0;
   }
 
   loop() {
@@ -24,7 +25,7 @@ class Game {
     return Math.random() * (max - min) + min;
   }
 
-  // OBSTICALS & GRAVITY
+  // OBSTICAL
 
   addObstical() {
     const timeNow = Date.now();
@@ -45,9 +46,9 @@ class Game {
   }
 
   addGravity() {
-    this.puppy.position.x = this.puppy.position.x + this.puppy.speed.x;
-    this.puppy.position.y = this.puppy.position.y + this.puppy.speed.y;
-    if (this.puppy.position.y + this.puppy.size.y < canvasElement.height) {
+    this.puppy.x = this.puppy.x + this.puppy.speed.x;
+    this.puppy.y = this.puppy.y + this.puppy.speed.y;
+    if (this.puppy.y + this.puppy.height < canvasElement.height) {
       this.puppy.speed.y = +0.5 * 2;
     } else {
       this.puppy.speed.y = 0;
@@ -57,21 +58,24 @@ class Game {
   stopGravityonObjects() {
     for (let obstical of this.obsticalArray) {
       var objectTop = obstical.y - obstical.height;
-      var puppyBottom = this.puppy.position.y;
+      var objectBottom = obstical.y;
       var objectLeft = obstical.x;
       var objectRight = obstical.x + obstical.width;
-      var puppyLeft = this.puppy.position.x;
-      var puppyRight = this.puppy.position.x + this.puppy.size.x;
+      var puppyTop = this.puppy.y - this.puppy.height;
+      var puppyBottom = this.puppy.y;
+      var puppyLeft = this.puppy.x;
+      var puppyRight = this.puppy.x + this.puppy.width;
+      //Check if puppy is on x-achse of object
       if (
-        //Check if puppy is on x-achse of object
-        (puppyRight > objectLeft && puppyLeft < objectLeft) ||
-        (puppyLeft < objectRight &&
-          objectLeft > puppyLeft &&
-          //Check if puppy is on y-achse of object
-          puppyBottom >= objectTop &&
-          puppyBottom <= objectTop + 1)
+        (!puppyLeft > objectRight &&
+          !puppyRight < objectLeft &&
+          puppyBottom < objectTop) ||
+        (!puppyLeft > objectRight &&
+          !puppyRight < objectLeft &&
+          puppyTop > objectBottom)
       ) {
         this.puppy.speed.y = 0;
+        console.log("stop gravity");
       }
     }
   }
@@ -83,22 +87,43 @@ class Game {
     if (timeNow > this.previousFoodtiming + 2000) {
       const food = new Food(
         this,
-        300,
-        200
-        //canvasElement.width,
-        //this.getRandomArbitrary (this.canvas.height/4, this.canvas.height-30)
+        canvasElement.width,
+        this.getRandomArbitrary(this.canvas.height / 4, this.canvas.height - 30)
       );
-      this.foodArray.push(obstical);
+      this.foodArray.push(food);
       this.previousFoodtiming = timeNow;
       console.log("food added");
     }
   }
 
+  collectFood() {
+    for (let food of this.foodArray) {
+      var foodTop = this.food.y - this.food.height;
+      var foodBottom = this.food.y;
+      var foodLeft = this.food.x;
+      var foodRight = this.food.x + this.food.width;
+      var puppyTop = this.puppy.y - this.puppy.height;
+      var puppyBottom = this.puppy.y;
+      var puppyLeft = this.puppy.x;
+      var puppyRight = this.puppy.x + this.puppy.width;
+      if (
+        puppyRight > foodLeft + this.food.width / 2 &&
+        puppyRight <= foodRight &&
+        puppyTop <= foodBottom &&
+        puppyTop >= foodTop
+      ) {
+        console.log("puppy eats food");
+        this.puppy.food += 10;
+      }
+    }
+  }
+
   // GAME OVER
-  bikeGameover() {
+  Gameover() {
     if (
-      this.bike.position.x + this.bike.size.x >= this.puppy.position.x &&
-      this.bike.position.y - this.bike.size.y <= this.puppy.position.y
+      (this.bike.position.x + this.bike.size.x >= this.puppy.x &&
+        this.bike.position.y - this.bike.size.y <= this.puppy.y) ||
+        this.puppy.food <= 0
     ) {
       this.puppy.speed.x = 0;
       this.puppy.speed.y = 0;
@@ -124,17 +149,17 @@ class Game {
 
   runLogic() {
     this.addGravity();
+    this.stopGravityonObjects();
     this.addObstical();
     for (let obstical of this.obsticalArray) {
       obstical.runLogic();
     }
-    this.stopGravityonObjects();
     this.addFood();
     for (let food of this.foodArray) {
       food.runLogic();
     }
     this.clearTrash();
-    this.bikeGameover();
+    this.Gameover();
   }
 
   draw() {

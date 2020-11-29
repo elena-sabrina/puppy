@@ -5,12 +5,16 @@ class Food {
       this.y = y;
       this.width = 20;
       this.height = 20;
-      this.color = "##d44601";
+      this.color = "blue";
+      this.previousFoodtiming = 0;
     }
   
     runLogic() {
       this.x -= 0.5;
     }
+
+
+  
   
     draw() {
       this.game.context.fillStyle = this.color;
