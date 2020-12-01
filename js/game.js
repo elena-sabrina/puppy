@@ -11,14 +11,19 @@ class Game {
     this.keyboardController.setKeyBindings();
     this.previousObsticaltiming = 0;
     this.previousFoodtiming = 0;
+    this.active = 0;
   }
 
   loop() {
-    this.runLogic();
-    this.draw();
-    window.requestAnimationFrame(() => {
-      this.loop();
-    });
+    if (this.active == 0) {
+      this.runLogic();
+      this.draw();
+      window.requestAnimationFrame(() => {
+        this.loop();
+      });
+    } else {
+      console.log("loop stoop");
+    }
   }
 
   getRandomArbitrary(min, max) {
@@ -57,25 +62,17 @@ class Game {
 
   stopGravityonObjects() {
     for (let obstical of this.obsticalArray) {
-      var objectTop = obstical.y - obstical.height;
-      var objectBottom = obstical.y;
-      var objectLeft = obstical.x;
-      var objectRight = obstical.x + obstical.width;
-      var puppyTop = this.puppy.y - this.puppy.height;
-      var puppyBottom = this.puppy.y;
-      var puppyLeft = this.puppy.x;
-      var puppyRight = this.puppy.x + this.puppy.width;
-      //Check if puppy is on x-achse of object
       if (
-        (!puppyLeft > objectRight &&
-          !puppyRight < objectLeft &&
-          puppyBottom < objectTop) ||
-        (!puppyLeft > objectRight &&
-          !puppyRight < objectLeft &&
-          puppyTop > objectBottom)
+        (this.puppy.x > obstical.x &&
+          this.puppy.x < obstical.x + obstical.width &&
+          this.puppy.y + this.puppy.height > obstical.y &&
+          this.puppy.y + this.puppy.height < obstical.y + obstical.height) ||
+        (this.puppy.x + this.puppy.width > obstical.x &&
+          this.puppy.x + this.puppy.width < obstical.x + obstical.width &&
+          this.puppy.y + this.puppy.height > obstical.y &&
+          this.puppy.y + this.puppy.height < obstical.y + obstical.height)
       ) {
         this.puppy.speed.y = 0;
-        console.log("stop gravity");
       }
     }
   }
@@ -84,35 +81,65 @@ class Game {
 
   addFood() {
     const timeNow = Date.now();
+    var obsticalWithfood = this.obsticalArray[this.obsticalArray.length - 1];
     if (timeNow > this.previousFoodtiming + 2000) {
       const food = new Food(
         this,
         canvasElement.width,
-        this.getRandomArbitrary(this.canvas.height / 4, this.canvas.height - 30)
+        obsticalWithfood.y - obsticalWithfood.height
+        //this.getRandomArbitrary(this.canvas.height / 4, this.canvas.height - 30)
       );
       this.foodArray.push(food);
       this.previousFoodtiming = timeNow;
-      console.log("food added");
     }
+  }
+
+  checkCollisionBetweentwoObjects(first, second) {
+    var firstTop = first.y - first.height;
+    var firstBottom = first.y;
+    var firstLeft = first.x;
+    var firstRight = first.x + first.width;
+
+    return (
+      firstLeft <= second.x &&
+      second.x <= firstRight &&
+      firstTop <= second.y &&
+      second.y <= firstBottom
+    );
   }
 
   collectFood() {
     for (let food of this.foodArray) {
-      var foodTop = this.food.y - this.food.height;
-      var foodBottom = this.food.y;
-      var foodLeft = this.food.x;
-      var foodRight = this.food.x + this.food.width;
-      var puppyTop = this.puppy.y - this.puppy.height;
-      var puppyBottom = this.puppy.y;
-      var puppyLeft = this.puppy.x;
-      var puppyRight = this.puppy.x + this.puppy.width;
+      var puppyLeftBottomCorner = {
+        x: this.puppy.x,
+        y: this.puppy.y
+      };
+      var puppyLeftTopCorner = {
+        x: this.puppy.x,
+        y: this.puppy.y - this.puppy.height
+      };
+      var puppyRightBottomCorner = {
+        x: this.puppy.x + this.puppy.width,
+        y: this.puppy.y
+      };
+      var puppyRightTopCorner = {
+        x: this.puppy.x + this.puppy.width,
+        y: this.puppy.y - this.puppy.height
+      };
+
       if (
-        puppyRight > foodLeft + this.food.width / 2 &&
-        puppyRight <= foodRight &&
-        puppyTop <= foodBottom &&
-        puppyTop >= foodTop
+        this.checkCollisionBetweentwoObjects(food, puppyLeftBottomCorner) ||
+        this.checkCollisionBetweentwoObjects(food, puppyLeftTopCorner) ||
+        this.checkCollisionBetweentwoObjects(food, puppyRightBottomCorner) ||
+        this.checkCollisionBetweentwoObjects(food, puppyRightTopCorner)
       ) {
         console.log("puppy eats food");
+        var indexToRemove = this.foodArray.indexOf(food);
+        if (indexToRemove > -1) {
+          console.log(indexToRemove);
+          console.log(this.foodArray.length);
+          this.foodArray.splice(indexToRemove, 1);
+        }
         this.puppy.food += 10;
       }
     }
@@ -123,11 +150,15 @@ class Game {
     if (
       (this.bike.position.x + this.bike.size.x >= this.puppy.x &&
         this.bike.position.y - this.bike.size.y <= this.puppy.y) ||
-        this.puppy.food <= 0
+      this.puppy.food <= 0
     ) {
-      this.puppy.speed.x = 0;
-      this.puppy.speed.y = 0;
-      this.puppy.color = "red";
+      this.active = 1;
+    }
+  }
+
+  Levelup() {
+    if (this.puppy.food >= 1000) {
+      this.active = 2;
     }
   }
 
@@ -157,7 +188,9 @@ class Game {
     this.addFood();
     for (let food of this.foodArray) {
       food.runLogic();
+      this.collectFood();
     }
+
     this.clearTrash();
     this.Gameover();
   }

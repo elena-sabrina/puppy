@@ -5,7 +5,7 @@ class KeyboardController {
 
   setKeyBindings() {
     window.addEventListener("keydown", (event) => {
-      if (this.game.puppy.x > 0 && this.game.puppy.x < canvasElement.width) {
+       {
         switch (event.key) {
           case "ArrowUp":
             this.game.puppy.y -= 40;
@@ -23,6 +23,8 @@ class KeyboardController {
       }
     });
   }
+
+
 
   //stopDoubleJump (){}
 }
