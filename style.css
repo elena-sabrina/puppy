@@ -13,7 +13,7 @@ body {
 
 canvas {
   transform: scale(2);
-  background-color: #52c0a7;
+  background-image :url("images/background/Cartoon_Forest_BG_03");
 }
 
 /* Bali Colors: 

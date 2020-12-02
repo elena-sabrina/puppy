@@ -9,15 +9,12 @@ class KeyboardController {
         switch (event.key) {
           case "ArrowUp":
             this.game.puppy.y -= 40;
-            this.game.puppy.food -= 1;
             break;
           case "ArrowLeft":
             this.game.puppy.x -= 20;
-            this.game.puppy.food -= 1;
             break;
           case "ArrowRight":
             this.game.puppy.x += 20;
-            this.game.puppy.food -= 1;
             break;
         }
       }
@@ -27,4 +24,5 @@ class KeyboardController {
 
 
   //stopDoubleJump (){}
+  // keyup event 
 }
