@@ -1,6 +1,5 @@
-
 const monkeyImage = new Image();
-monkeyImage.src = '/images/monkey/monkey-sprite.png';
+monkeyImage.src = "/images/monkey/monkey-sprite.png";
 
 class Monkey {
   constructor(game, x, y, width, height) {
@@ -17,21 +16,21 @@ class Monkey {
 
   runLogic() {
     this.x -= 0.5;
-  }
-
-  draw() {
-    this.game.context.fillStyle = this.color;
-    this.game.context.fillRect(this.x, this.y, this.width, this.height);
+    console.log(this.x);
   }
 
   /*draw() {
-    if (Date.now() > this.positionChangeTimestamp + 150) {
-      this.position = (this.position + 1) % 15;
+    this.game.context.fillStyle = this.color;
+    this.game.context.fillRect(this.x, this.y, this.width, this.height);
+  }
+  */
+
+  draw() {
+    if (Date.now() > this.positionChangeTimestamp + 250) {
+      this.position = (this.position + 1) % 4;
       this.positionChangeTimestamp = Date.now();
     }
-    this.game.context.save();
-    this.game.context.translate(this.x + this.width, this.y);
-    this.game.context.scale(-1, 1);
+
     this.game.context.drawImage(
       monkeyImage,
       140 * this.position,
@@ -44,7 +43,5 @@ class Monkey {
       this.height
     );
     this.game.context.restore();
-  }*/
-
-
+  }
 }

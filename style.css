@@ -3,13 +3,8 @@
 
 html,
 body {
-  width: 100%;
-  height: 100%;
   background-color: #dbc6ae11;
   font-family: "Open Sans", sans-serif;
-}
-
-body {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -18,22 +13,20 @@ body {
 
 
 .woodboarder {
-  
   border: solid 14px #dbc6ae;
   background-color: white;
-  margin: 0;
+  background-image:url("/images/background/bg-long.png");
   padding: 0;
   border-radius: 1%;
   box-shadow: 0px 0px 20px#dbc6ae;
+  margin: 100px;
 }
 
 .controllers{
-  margin: 200px;
-  width: 400px;
+  margin: 100px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  
 }
 
 .controllers a {

@@ -248,18 +248,19 @@ class Game {
     }
     this.clearTrash();
     this.GameoverScenarioBike();
+    this.GameOverScenarioMonkey ();
   }
 
   draw() {
     this.clear();
+    for (let monkey of this.monkeyArray) {
+      monkey.draw();
+    }
     for (let obstical of this.obsticalArray) {
       obstical.draw();
     }
     for (let food of this.foodArray) {
       food.draw();
-    }
-    for (let monkey of this.monkeyArray) {
-      monkey.draw();
     }
     this.puppy.draw();
     this.puppy.drawLifestatus();
