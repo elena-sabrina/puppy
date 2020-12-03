@@ -4,7 +4,11 @@ class Game {
     this.context = canvas.getContext("2d");
     this.keyboardController = new KeyboardController(this);
     this.keyboardController.setKeyBindings();
- 
+
+    this.restore();
+  }
+
+  restore(){
     this.puppy = new Puppy(this);
     this.bike = new Bike(this);
     this.obsticalArray = [];

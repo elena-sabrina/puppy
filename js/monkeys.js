@@ -7,9 +7,9 @@ class Monkey {
     this.game = game;
     this.x = x;
     this.y = y;
-    this.width = 30;
-    this.height = 30;
-    this.color = "brown";
+    this.width = 20;
+    this.height = 20;
+    this.color = "#177263";
 
     this.positionChangeTimestamp = 0;
     this.position = 0;

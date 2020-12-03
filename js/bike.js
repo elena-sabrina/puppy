@@ -13,7 +13,7 @@ class Bike {
     }
   
     draw() {
-      this.game.context.fillStyle = "red";
+      this.game.context.fillStyle = "#5c0d09";
       this.game.context.fillRect(
         this.position.x,
         this.position.y,

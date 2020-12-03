@@ -1,21 +1,55 @@
+@import url("https://fonts.googleapis.com/css2?family=Oxygen:wght@300;400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&display=swap");
+
 html,
 body {
   width: 100%;
   height: 100%;
+  background-color: #dbc6ae11;
+  font-family: "Open Sans", sans-serif;
 }
 
 body {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin:0;
+}
+
+
+.woodboarder {
+  
+  border: solid 14px #dbc6ae;
+  background-color: white;
   margin: 0;
+  padding: 0;
+  border-radius: 1%;
+  box-shadow: 0px 0px 20px#dbc6ae;
 }
 
-canvas {
-  transform: scale(2);
-  background-image :url("images/background/Cartoon_Forest_BG_03");
+.controllers{
+  margin: 200px;
+  width: 400px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  
 }
 
+.controllers a {
+   text-decoration: none;
+   color: white;
+   font-size: 20px;
+   margin: 30px;
+}
+
+.button-style {
+  background-color:#dbc6ae;
+  border-radius: 1%;
+  box-shadow: 0px 0px 20px #dbc6ae;
+  padding: 10px 15px;
+
+}
 /* Bali Colors: 
 - orange #d44601
 - red #5c0d09
