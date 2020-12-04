@@ -2,6 +2,7 @@ class Game {
   constructor(canvas) {
     this.canvas = canvas;
     this.context = canvas.getContext("2d");
+    this.background = new Background(this);
     this.keyboardController = new KeyboardController(this);
     this.keyboardController.setKeyBindings();
     this.gamespeed = 0.5;
@@ -215,16 +216,6 @@ class Game {
     }
   }
 
-  // ADD LAYERS
-
-  addLayer() {
-    const layer = new LayerOne(this, 0);
-  }
-
-  /*drawLayer () {
-    
-  }*/
-
   // CLEAR
   clear() {
     this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
@@ -242,7 +233,6 @@ class Game {
   // LOGIC & DRAW
 
   runLogic() {
-    this.addLayer();
     this.addGravity();
     this.stopGravityonObjects();
     this.addObstical();
@@ -265,7 +255,7 @@ class Game {
 
   draw() {
     this.clear();
-    this.layerOne.draw();
+    this.background.draw();
 
     for (let monkey of this.monkeyArray) {
       monkey.draw();
