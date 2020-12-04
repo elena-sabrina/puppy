@@ -1,4 +1,4 @@
-class Bike {
+/*class Bike {
     constructor(game) {
       this.game = game;
       this.position = {
@@ -22,3 +22,4 @@ class Bike {
       );
     }
   }
+  */

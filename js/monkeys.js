@@ -6,8 +6,8 @@ class Monkey {
     this.game = game;
     this.x = x;
     this.y = y;
-    this.width = 20;
-    this.height = 20;
+    this.width = 40;
+    this.height = 40;
     this.color = "#177263";
 
     this.positionChangeTimestamp = 0;
@@ -15,8 +15,8 @@ class Monkey {
   }
 
   runLogic() {
-    this.x -= 0.5;
-    console.log(this.x);
+    this.x -= this.game.gamespeed;
+
   }
 
   /*draw() {

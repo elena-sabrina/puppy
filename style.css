@@ -9,24 +9,60 @@ body {
   justify-content: center;
   align-items: center;
   margin:0;
+  padding: 0;
 }
 
-
-.woodboarder {
+.woodboarder-without-canvas {
+  width: 800px;
+  height: 400px;
   border: solid 14px #dbc6ae;
   background-color: white;
-  background-image:url("/images/background/bg-long.png");
+  background-image:url("/images/background/black.png");
+  background-blend-mode: whiten;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 800px;
   padding: 0;
   border-radius: 1%;
   box-shadow: 0px 0px 20px#dbc6ae;
   margin: 100px;
+  padding: 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  font-weight: leighter;
+  color: rgba(255, 255, 255, 0.938);
+}
+
+h1 {
+  font-size: 40px;
+  margin: 0;
+  padding: 0;
+}
+
+p {
+  margin: 0;
+  padding: 10px;
+}
+
+.woodboarder {
+  border: solid 14px #dbc6ae;
+  background-color: white;
+  
+  padding: 0;
+  border-radius: 1%;
+  box-shadow: 0px 0px 20px#dbc6ae;
+  margin: 100px 0px 50px 0px;
+  padding: 0px;
 }
 
 .controllers{
-  margin: 100px;
+  margin: 80px;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-around;
 }
 
 .controllers a {

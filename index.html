@@ -7,18 +7,27 @@
     <link href="style.css" rel="stylesheet" type="text/css" />
   </head>
   <body>
-    <!--
-  <section id="screen-start" style="display: none">
-      <button id="play-button">Play</button>
+
+  <!--   
+    
+    <section id="screen-start">
+      <div class ="woodboarder-without-canvas">
+        <p>...</p>
+        <h1>Bali Puppy Run</h1>
+        <p>1. Collect Food to become a Bali Dog</p>
+        <p>2. Hide from the dangerous Monkeys</p>
+      </div>
+      <div class = "controllers">
+        <div class ="button-style">
+          <button id="play-button">Play</button>
+        </div>
+        </div>
+      </div>
     </section>
-    <section id="screen-game-over" style="display: none">
-      <h1>You lost...</h1>
-      <button id="play-again-button">Play Again</button>
-    </section>
-  -->
-    <section id="screen-play">
+-->
+ <section id="screen-play">
       <div class ="woodboarder">
-       <canvas width="600" height="400"></canvas>
+       <canvas width="800" height="400"></canvas>
       </div>
       <div class = "controllers">
         <div class ="button-style">
@@ -31,11 +40,27 @@
       </div>
     </section>
 
+  <!-- 
+    <section id="screen-game-over">
+      <div class ="woodboarder-without-canvas">
+        <p>I'm sorry...</p>
+        <h1>Game Over</h1>
+        <p>Your Puppy lost a fight with a Monkey</p>
+      </div>
+      <div class = "controllers">
+        <div class ="button-style">
+          <button id="replay-button">Replay</button>
+        </div>
+        </div>
+      </div>
+    </section>
+-->
     <script src="js/obsticals.js"></script>
     <script src="js/food.js"></script>
     <script src="js/monkeys.js"></script>
     <script src="js/bike.js"></script>    
     <script src="js/puppy.js"></script>
+    <script src="js/background.js"></script>
     <script src="js/controllers.js"></script>
     <script src="js/game.js"></script>
     <script src="js/script.js"></script>

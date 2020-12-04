@@ -9,7 +9,7 @@ class Obstical {
   }
 
   runLogic() {
-    this.x -= 0.5;
+    this.x -= this.game.gamespeed;
   }
 
   draw() {

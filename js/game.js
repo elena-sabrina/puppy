@@ -4,13 +4,14 @@ class Game {
     this.context = canvas.getContext("2d");
     this.keyboardController = new KeyboardController(this);
     this.keyboardController.setKeyBindings();
+    this.gamespeed = 0.5;
 
     this.restore();
   }
 
-  restore(){
+  restore() {
     this.puppy = new Puppy(this);
-    this.bike = new Bike(this);
+    // this.bike = new Bike(this);
     this.obsticalArray = [];
     this.foodArray = [];
     this.monkeyArray = [];
@@ -50,7 +51,7 @@ class Game {
           this.canvas.height - 30
         ),
         this.getRandomArbitrary(30, 100),
-        20
+        30
       );
       this.obsticalArray.push(obstical);
       this.previousObsticaltiming = timeNow;
@@ -64,7 +65,7 @@ class Game {
     this.puppy.x = this.puppy.x + this.puppy.speed.x;
     this.puppy.y = this.puppy.y + this.puppy.speed.y;
     if (this.puppy.y + this.puppy.height < canvasElement.height) {
-      this.puppy.speed.y = +0.5 * 2;
+      this.puppy.speed.y = this.gamespeed ** 0.01;
     } else {
       this.puppy.speed.y = 0;
     }
@@ -156,7 +157,7 @@ class Game {
 
   addMonkey() {
     const timeNow = Date.now();
-    if (timeNow > this.previousMonkeytiming + 5000) {
+    if (timeNow > this.previousMonkeytiming + 20000) {
       const monkey = new Monkey(
         this,
         canvasElement.width,
@@ -214,6 +215,16 @@ class Game {
     }
   }
 
+  // ADD LAYERS
+
+  addLayer() {
+    const layer = new LayerOne(this, 0);
+  }
+
+  /*drawLayer () {
+    
+  }*/
+
   // CLEAR
   clear() {
     this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
@@ -231,6 +242,7 @@ class Game {
   // LOGIC & DRAW
 
   runLogic() {
+    this.addLayer();
     this.addGravity();
     this.stopGravityonObjects();
     this.addObstical();
@@ -247,12 +259,14 @@ class Game {
       monkey.runLogic();
     }
     this.clearTrash();
-    this.GameoverScenarioBike();
-    this.GameOverScenarioMonkey ();
+    // this.GameoverScenarioBike();
+    this.GameOverScenarioMonkey();
   }
 
   draw() {
     this.clear();
+    this.layerOne.draw();
+
     for (let monkey of this.monkeyArray) {
       monkey.draw();
     }
@@ -264,6 +278,6 @@ class Game {
     }
     this.puppy.draw();
     this.puppy.drawLifestatus();
-    this.bike.draw();
+    //this.bike.draw();
   }
 }
