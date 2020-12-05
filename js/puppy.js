@@ -19,6 +19,10 @@ class Puppy {
     this.position = 0;
   }
 
+  runLogic() {
+    this.x -= this.game.gamespeed;
+  }
+
   drawLifestatus() {
     this.game.context.fillStyle = "white";
     this.game.context.font = " 16px sans-serif";

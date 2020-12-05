@@ -16,11 +16,13 @@ console.log(backgroundImages);
 class Background {
   constructor(game) {
     this.game = game;
+    this.x = 0;
   }
 
   /*runLogic() {
     this.x -= this.game.gamespeed;
   }
+  
   draw() {
     this.game.context.fillStyle = "red";
     this.game.context.fillRect(0, 0, 800, 400);
@@ -29,9 +31,7 @@ class Background {
   draw() {
     const context = this.game.context;
      for (let i = 0; i < backgroundImages.length; i++) {
-       //const layer = backgroundLayers[i];
        context.drawImage(backgroundImages[i], 0, 0, 800, 400);
-
     }
   }
 }

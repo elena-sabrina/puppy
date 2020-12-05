@@ -2,7 +2,6 @@ class Game {
   constructor(canvas) {
     this.canvas = canvas;
     this.context = canvas.getContext("2d");
-    this.background = new Background(this);
     this.keyboardController = new KeyboardController(this);
     this.keyboardController.setKeyBindings();
     this.gamespeed = 0.5;
@@ -11,6 +10,11 @@ class Game {
   }
 
   restore() {
+    this.layerFour = new LayerFour (this,0);
+    this.layerOne = new LayerOne (this,0);
+    this.layerTwo = new LayerTwo (this,0);
+    this.layerThree = new LayerThree (this,0);
+    
     this.puppy = new Puppy(this);
     // this.bike = new Bike(this);
     this.obsticalArray = [];
@@ -235,6 +239,7 @@ class Game {
   runLogic() {
     this.addGravity();
     this.stopGravityonObjects();
+    
     this.addObstical();
     for (let obstical of this.obsticalArray) {
       obstical.runLogic();
@@ -248,6 +253,17 @@ class Game {
     for (let monkey of this.monkeyArray) {
       monkey.runLogic();
     }
+    this.layerOne.runLogicOne();
+    this.layerTwo.runLogicTwo();
+    this.layerThree.runLogicThree();
+    this.layerFour.runLogicFour();
+    this.puppy.runLogic();
+
+   /* for (let layer of this.+) {
+      backgroundImages[i].runLogic();
+    }
+*/
+   // for (let layer of this.backgroundImages)
     this.clearTrash();
     // this.GameoverScenarioBike();
     this.GameOverScenarioMonkey();
@@ -255,7 +271,10 @@ class Game {
 
   draw() {
     this.clear();
-    this.background.draw();
+    this.layerOne.drawOne();
+    this.layerTwo.drawTwo();
+    this.layerThree.drawThree();
+    this.layerFour.drawFour();
 
     for (let monkey of this.monkeyArray) {
       monkey.draw();
@@ -268,6 +287,7 @@ class Game {
     }
     this.puppy.draw();
     this.puppy.drawLifestatus();
+    
     //this.bike.draw();
   }
 }
