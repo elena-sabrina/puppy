@@ -6,11 +6,11 @@ class Bike {
     this.game = game;
     this.position = {
       x: 0,
-      y: canvasElement.height - 40
+      y: canvasElement.height - 80
     };
     this.size = {
-      x: 60,
-      y: 40
+      x: 120,
+      y: 80
     };
   }
 

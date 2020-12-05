@@ -10,7 +10,7 @@ class Puppy {
     this.height = 55;
     this.speed = {
       x: 0,
-      y: 0
+      y: 1
     };
     this.color = "black";
     this.food = 0;

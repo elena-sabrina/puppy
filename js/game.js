@@ -1,3 +1,5 @@
+const biteSound = new Audio("/sound/bite.wav");
+
 class Game {
   constructor(canvas) {
     this.canvas = canvas;
@@ -53,7 +55,7 @@ class Game {
         canvasElement.width,
         this.getRandomArbitrary(
           this.canvas.height / 4,
-          this.canvas.height - 30
+          this.canvas.height - this.puppy.speed.y
         ),
         this.getRandomArbitrary(50, 100),
         40
@@ -70,7 +72,7 @@ class Game {
     this.puppy.x = this.puppy.x + this.puppy.speed.x;
     this.puppy.y = this.puppy.y + this.puppy.speed.y;
     if (this.puppy.y + this.puppy.height < canvasElement.height) {
-      this.puppy.speed.y = this.gamespeed ** 0.01;
+      this.puppy.speed.y += 0.02;
     } else {
       this.puppy.speed.y = 0;
     }
@@ -111,7 +113,7 @@ class Game {
   addFood() {
     const timeNow = Date.now();
     var obsticalWithfood = this.obsticalArray[this.obsticalArray.length - 1];
-    if (timeNow > this.previousFoodtiming + 2000) {
+    if (timeNow > this.previousFoodtiming + 3000) {
       const food = new Food(
         this,
         canvasElement.width,
@@ -166,6 +168,7 @@ class Game {
           this.foodArray.splice(indexToRemove, 1);
         }
         this.puppy.food += 10;
+        biteSound.play();
       }
     }
   }
@@ -222,6 +225,10 @@ class Game {
       ) {
         this.active = 1;
         console.log("game over monkey");
+        screenStartElement.style.display = "none";
+        screenPlayElement.style.display = "none";
+        screenGameOverElement.style.display = "none";
+        screenGameWonElement.style.display = "none";
       }
     }
   }
