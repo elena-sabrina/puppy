@@ -35,9 +35,8 @@ PlayButtonElement.addEventListener("click", () => {
   screenGameOverMonkeyElement.style.display = "none";
   screenGameOverBikeElement.style.display = "none";
   screenGameWonElement.style.display = "none";
-
-  game.loop();
   game.restore();
+  game.loop();
 });
 
 ReplayButtonMonkeyElement.addEventListener("click", () => {
@@ -47,8 +46,8 @@ ReplayButtonMonkeyElement.addEventListener("click", () => {
   screenGameOverBikeElement.style.display = "none";
   screenGameWonElement.style.display = "none";
 
-  game.loop();
   game.restore();
+  game.loop();
 });
 
 ReplayButtonBikeElement.addEventListener("click", () => {
@@ -58,8 +57,8 @@ ReplayButtonBikeElement.addEventListener("click", () => {
   screenGameOverBikeElement.style.display = "none";
   screenGameWonElement.style.display = "none";
 
-  game.loop();
   game.restore();
+  game.loop();
 });
 
 PlayAgainButtonElement.addEventListener("click", () => {
@@ -69,6 +68,6 @@ PlayAgainButtonElement.addEventListener("click", () => {
   screenGameOverBikeElement.style.display = "none";
   screenGameWonElement.style.display = "none";
 
-  game.loop();
   game.restore();
+  game.loop();
 });
