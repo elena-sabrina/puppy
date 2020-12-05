@@ -19,7 +19,7 @@ class LayerOne {
 
   drawloopOne() {
     if (this.x + this.width == 0) {
-      this.draw();
+      this.drawOne();
     }
   }
 
@@ -33,6 +33,8 @@ class LayerOne {
     );
     this.drawloopOne();
   }
+
+  //draw them at the same time and then replace them like this if image1.x == 30 then firstimage is there then i want to draw a second one
 }
 /*---------------------------------------------------*/
 

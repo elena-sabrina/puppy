@@ -1,8 +1,10 @@
 const canvasElement = document.querySelector("canvas");
 const game = new Game(canvasElement);
-/*
 
-const ReplayButtonElement = document.getElementById("replay-button");
+const ReplayButtonMonkeyElement = document.getElementById(
+  "replay-button-monkey"
+);
+const ReplayButtonBikeElement = document.getElementById("replay-button-bike");
 const PlayButtonElement = document.getElementById("play-button");
 const PlayAgainButtonElement = document.getElementById("play-again-button");
 
@@ -16,6 +18,17 @@ const screenGameOverBikeElement = document.getElementById(
 );
 const screenGameWonElement = document.getElementById("screen-you-won");
 
+console.dir(ReplayButtonMonkeyElement);
+console.dir(ReplayButtonBikeElement);
+console.dir(PlayButtonElement);
+console.dir(PlayAgainButtonElement);
+
+screenStartElement.style.display = "initial";
+screenPlayElement.style.display = "none";
+screenGameOverMonkeyElement.style.display = "none";
+screenGameOverBikeElement.style.display = "none";
+screenGameWonElement.style.display = "none";
+
 PlayButtonElement.addEventListener("click", () => {
   screenStartElement.style.display = "none";
   screenPlayElement.style.display = "initial";
@@ -23,29 +36,39 @@ PlayButtonElement.addEventListener("click", () => {
   screenGameOverBikeElement.style.display = "none";
   screenGameWonElement.style.display = "none";
 
-  */
   game.loop();
-  game.reset ();
-  /*
+  game.restore();
 });
 
-ReplayButtonElement.addEventListener("click", () => {
+ReplayButtonMonkeyElement.addEventListener("click", () => {
   screenStartElement.style.display = "none";
-  screenPlayElement.style.display = "none";
-  screenGameOverMonkeyElement.style.display = "initial";
-  screenGameOverBikeElement.style.display = "initial";
+  screenPlayElement.style.display = "initial";
+  screenGameOverMonkeyElement.style.display = "none";
+  screenGameOverBikeElement.style.display = "none";
   screenGameWonElement.style.display = "none";
-  game.reset();
+
   game.loop();
+  game.restore();
+});
+
+ReplayButtonBikeElement.addEventListener("click", () => {
+  screenStartElement.style.display = "none";
+  screenPlayElement.style.display = "initial";
+  screenGameOverMonkeyElement.style.display = "none";
+  screenGameOverBikeElement.style.display = "none";
+  screenGameWonElement.style.display = "none";
+
+  game.loop();
+  game.restore();
 });
 
 PlayAgainButtonElement.addEventListener("click", () => {
   screenStartElement.style.display = "none";
-  screenPlayElement.style.display = "none";
+  screenPlayElement.style.display = "initial";
   screenGameOverMonkeyElement.style.display = "none";
   screenGameOverBikeElement.style.display = "none";
-  screenGameWonElement.style.display = "initial";
-  game.reset();
+  screenGameWonElement.style.display = "none";
+
   game.loop();
+  game.restore();
 });
-*/

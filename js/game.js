@@ -174,11 +174,10 @@ class Game {
         }
         this.puppy.food += 10;
         biteSound.play();
-       // this.addFoodScore(this.food.x, this.food.y);
+        // this.addFoodScore(this.food.x, this.food.y);
       }
     }
   }
-
 
   /*addFoodScore (xposition, yposition) {
     const timeNow = Date.now();
@@ -192,7 +191,6 @@ class Game {
       this.previousObsticaltiming = timeNow;
     }
   }*/
-
 
   // MONKEY
 
@@ -218,6 +216,11 @@ class Game {
     ) {
       gameoverSoundBike.play();
       this.active = 1;
+      screenStartElement.style.display = "none";
+        screenPlayElement.style.display = "none";
+        screenGameOverMonkeyElement.style.display = "none";
+        screenGameOverBikeElement.style.display = "initial";
+        screenGameWonElement.style.display = "none";
     }
   }
 
@@ -247,6 +250,11 @@ class Game {
       ) {
         this.active = 1;
         gameoverSoundMonkey.play();
+        screenStartElement.style.display = "none";
+        screenPlayElement.style.display = "none";
+        screenGameOverMonkeyElement.style.display = "initial";
+        screenGameOverBikeElement.style.display = "none";
+        screenGameWonElement.style.display = "none";
       }
     }
   }
@@ -255,6 +263,11 @@ class Game {
     if (this.puppy.food >= 100) {
       this.active = 1;
       gamewonSound.play();
+      screenStartElement.style.display = "none";
+      screenPlayElement.style.display = "none";
+      screenGameOverMonkeyElement.style.display = "none";
+      screenGameOverBikeElement.style.display = "none";
+      screenGameWonElement.style.display = "initial";
     }
   }
 
@@ -298,7 +311,7 @@ class Game {
     //this.layerTwo.runLogicTwo();
     //this.layerThree.runLogicThree();
     //this.layerFour.runLogicFour();
-    this.puppy.runLogic();
+    //this.puppy.runLogic();
 
     /* for (let layer of this.+) {
       backgroundImages[i].runLogic();

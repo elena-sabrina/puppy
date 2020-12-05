@@ -22,7 +22,7 @@ body {
   background-size: 800px;
   border-radius: 1%;
   box-shadow: 0px 0px 20px#dbc6ae;
-  margin: 100px 0 40px 0;
+  margin: 100px 0 50px 0;
   padding: 0px;
   display: flex;
   justify-content: center;
@@ -46,11 +46,17 @@ p {
 
 .woodboarder {
   border: solid 14px #dbc6ae;
-  padding: 0px;
   border-radius: 1%;
   box-shadow: 0px 0px 20px#dbc6ae;
-  margin: 100px 0px 50px 0px;
+  margin: 100px 0 50px 0;
   padding: 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  font-weight: leighter;
+  color: rgba(255, 255, 255, 0.938);
 }
 
 .controllers{
