@@ -26,7 +26,7 @@ class Puppy {
   drawLifestatus() {
     this.game.context.fillStyle = "white";
     this.game.context.font = " 16px sans-serif";
-    this.game.context.fillText("Food: " + this.food, 20, 24);
+    this.game.context.fillText("Chicken legs: " + this.food, 20, 24);
   }
 
   /*draw() {

@@ -3,12 +3,11 @@
 
 html,
 body {
-  background-color: #dbc6ae11;
   font-family: "Open Sans", sans-serif;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin:0;
+  margin: 0;
   padding: 0;
 }
 
@@ -16,7 +15,6 @@ body {
   width: 800px;
   height: 400px;
   border: solid 14px #dbc6ae;
-  background-color: white;
   background-image:url("/images/background/black.png");
   background-blend-mode: whiten;
   background-position: center;
@@ -25,7 +23,7 @@ body {
   padding: 0;
   border-radius: 1%;
   box-shadow: 0px 0px 20px#dbc6ae;
-  margin: 100px;
+  margin: 100px 0 40px 0;
   padding: 0px;
   display: flex;
   justify-content: center;
@@ -38,19 +36,17 @@ body {
 
 h1 {
   font-size: 40px;
-  margin: 0;
+  margin: 0 0 10px 0;
   padding: 0;
 }
 
 p {
   margin: 0;
-  padding: 10px;
+  padding: 5px 0 0 0;
 }
 
 .woodboarder {
   border: solid 14px #dbc6ae;
-  background-color: white;
-  
   padding: 0;
   border-radius: 1%;
   box-shadow: 0px 0px 20px#dbc6ae;
@@ -59,20 +55,19 @@ p {
 }
 
 .controllers{
-  margin: 80px;
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: center;
+
 }
 
-.controllers a {
-   text-decoration: none;
-   color: white;
-   font-size: 20px;
-   margin: 30px;
-}
-
-.button-style {
+button {
+  margin: 60px;
+  align-items: center;
+  border: none;
+  color: white;
+  font-size: 20px;
+  margin: 10px;
   background-color:#dbc6ae;
   border-radius: 1%;
   box-shadow: 0px 0px 20px #dbc6ae;
