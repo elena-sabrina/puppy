@@ -18,11 +18,11 @@ class LayerOne {
     this.x = 0; //oneimage-case
   }
 
-  drawloopOne() {
+  /*drawloopOne() {
     if (this.x + this.width == 0) {
       this.draw();
     }
-  }
+  }*/
 
   drawOne() {
     this.game.context.drawImage(
@@ -32,6 +32,6 @@ class LayerOne {
       this.width,
       this.height
     );
-    this.drawloopOne();
+    //this.drawloopOne();
   }
 }

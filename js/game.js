@@ -15,10 +15,12 @@ class Game {
   }
 
   restore() {
-    //this.layerFour = new LayerFour(this, 0);
-    this.layerOne = new LayerOne(this, 0);
-    //this.layerTwo = new LayerTwo(this, 0);
-    //this.layerThree = new LayerThree(this, 0);
+    //this.layerFour = new LayerFour(this);
+    this.layerOne = new LayerOne(this);
+    //this.layerOneFirst = new layerOneFirst(this);
+    //this.layerOneSecond = new layerOneSecond(this);
+    //this.layerTwo = new LayerTwo(this);
+    //this.layerThree = new LayerThree(this);
 
     this.puppy = new Puppy(this);
     this.bike = new Bike(this);
@@ -308,10 +310,12 @@ class Game {
     //  foodscore.runLogic();
     //}
     this.layerOne.runLogicOne();
+    //this.layerOneFirst.runLogicOne();
+    //this.layerOneSecond.runLogicOne();
     //this.layerTwo.runLogicTwo();
     //this.layerThree.runLogicThree();
     //this.layerFour.runLogicFour();
-    //this.puppy.runLogic();
+    this.puppy.runLogic();
 
     /* for (let layer of this.+) {
       backgroundImages[i].runLogic();
@@ -327,6 +331,8 @@ class Game {
   draw() {
     this.clear();
     this.layerOne.drawOne();
+    //this.layerOneFirst.drawOne();
+    //this.layerOneScond.drawOne();
     //this.layerTwo.drawTwo();
     //this.layerThree.drawThree();
     //this.layerFour.drawFour();

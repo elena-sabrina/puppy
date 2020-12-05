@@ -1,10 +1,13 @@
-const layerOneImage = new Image();
-layerOneImage.src = "/images/background/layers/1.png";
+const layerOneImageOne = new Image();
+layerOneImageOne.src = "/images/background/layers/1.png";
 
-class LayerOne {
-  constructor(game, x) {
+const layerOneImageTwo = new Image();
+layerOneImageTwo.src = "/images/background/layers/1.png";
+
+class layerOneFirst {
+  constructor(game) {
     this.game = game;
-    this.x = x;
+    this.x = 0;
     this.y = 0;
     this.width = 800;
     this.height = 400;
@@ -17,34 +20,60 @@ class LayerOne {
     this.x -= this.game.gamespeed -0.2;
   }
 
-  drawloopOne() {
-    if (this.x + this.width == 0) {
-      this.drawOne();
-    }
-  }
-
   drawOne() {
     this.game.context.drawImage(
-      layerOneImage,
+      layerOneImageOne,
       this.x,
       this.y,
       this.width,
       this.height
-    );
-    this.drawloopOne();
+    );  
+    console.log(layerOneFirst.x); 
+  }
+}
+
+class layerOneSecond {
+  constructor(game) {
+    this.game = game;
+    this.x = 0;
+    this.y = 0;
+    this.width = 800;
+    this.height = 400;
+
+    this.positionChangeTimestamp = 0;
+    this.position = 0;
   }
 
-  //draw them at the same time and then replace them like this if image1.x == 30 then firstimage is there then i want to draw a second one
+  runLogicOne() {
+    this.x -= this.game.gamespeed -0.2;
+  }
+
+  drawOne() {
+    this.game.context.drawImage(
+      layerOneImageTwo,
+      this.x,
+      this.y,
+      this.width,
+      this.height
+    );  
+    console.log(this.layerOneSecond.x); 
+  }
 }
+  /*if (this.layerOneImageOne.x < canvasElement.width) {
+    this.layerOneImageTwo.x == this.layerOneImageOne.x + this.layerOneImageOne.width
+  }*/
+
+  //draw them at the same time and then replace them like this if image1.x == 30 then firstimage is there then i want to draw a second one
+
 /*---------------------------------------------------*/
 
 const layerTwoImage = new Image();
 layerTwoImage.src = "/images/background/layers/2.png";
 
 class LayerTwo {
-  constructor(game, x) {
+  constructor(game) {
     this.game = game;
-    this.x = x;
+    this.x = 0;
     this.y = 0;
     this.width = 800;
     this.height = 400;
@@ -81,9 +110,9 @@ const layerThreeImage = new Image();
 layerThreeImage.src = "/images/background/layers/3.png";
 
 class LayerThree {
-  constructor(game, x) {
+  constructor(game) {
     this.game = game;
-    this.x = x;
+    this.x = 0;
     this.y = 0;
     this.width = 800;
     this.height = 400;
@@ -120,9 +149,9 @@ const layerFourImage = new Image();
 layerFourImage.src = "/images/background/layers/4.png";
 
 class LayerFour {
-  constructor(game, x) {
+  constructor(game) {
     this.game = game;
-    this.x = x;
+    this.x = 0;
     this.y = 0;
     this.width = 800;
     this.height = 400;

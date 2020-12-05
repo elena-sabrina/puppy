@@ -15,13 +15,13 @@ body {
   width: 800px;
   height: 400px;
   border: solid 14px #dbc6ae;
-  background-image:url("/images/background/black.png");
+  background-image:url("/images/background//black.png");
   background-blend-mode: whiten;
   background-position: center;
   background-repeat: no-repeat;
   background-size: 800px;
   border-radius: 1%;
-  box-shadow: 0px 0px 20px#dbc6ae;
+  box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
   margin: 100px 0 50px 0;
   padding: 0px;
   display: flex;
@@ -47,7 +47,7 @@ p {
 .woodboarder {
   border: solid 14px #dbc6ae;
   border-radius: 1%;
-  box-shadow: 0px 0px 20px#dbc6ae;
+  box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
   margin: 100px 0 50px 0;
   padding: 0px;
   display: flex;
@@ -67,6 +67,7 @@ p {
 }
 
 button {
+  display: inline-block;
   margin: 60px;
   align-items: center;
   border: none;
@@ -74,11 +75,27 @@ button {
   font-size: 20px;
   margin: 10px;
   background-color:#dbc6ae;
-  border-radius: 1%;
-  box-shadow: 0px 0px 20px #dbc6ae;
+  border-radius: 2%;
+  box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
   padding: 10px 15px;
-
+  transition: all 0.3s ease 0s;
 }
+
+button:hover {
+  color: black !important;
+  letter-spacing: 1px;
+  background: none;
+  transition: all 0.3s ease 0s
+}
+
+button:active {
+  color: black !important;
+  outline: none;
+  letter-spacing: 1px;
+  background: none;
+  transition: all 0.3s ease 0s
+}
+
 /* Bali Colors: 
 - orange #d44601
 - red #5c0d09

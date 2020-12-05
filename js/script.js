@@ -18,10 +18,10 @@ const screenGameOverBikeElement = document.getElementById(
 );
 const screenGameWonElement = document.getElementById("screen-you-won");
 
-console.dir(ReplayButtonMonkeyElement);
-console.dir(ReplayButtonBikeElement);
-console.dir(PlayButtonElement);
-console.dir(PlayAgainButtonElement);
+//console.dir(ReplayButtonMonkeyElement);
+//console.dir(ReplayButtonBikeElement);
+//console.dir(PlayButtonElement);
+//console.dir(PlayAgainButtonElement);
 
 screenStartElement.style.display = "initial";
 screenPlayElement.style.display = "none";
