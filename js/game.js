@@ -79,7 +79,7 @@ class Game {
     this.puppy.x = this.puppy.x + this.puppy.speed.x;
     this.puppy.y = this.puppy.y + this.puppy.speed.y;
     if (this.puppy.y + this.puppy.height < canvasElement.height) {
-      this.puppy.speed.y += 0.02;
+      this.puppy.speed.y += 0.01;
     } else {
       this.puppy.speed.y = 0;
     }
