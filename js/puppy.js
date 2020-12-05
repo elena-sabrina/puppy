@@ -6,8 +6,8 @@ class Puppy {
     this.game = game;
     this.x = canvasElement.width / 3;
     this.y = canvasElement.height - 60;
-    this.width = 60;
-    this.height = 60;
+    this.width = 45;
+    this.height = 55;
     this.speed = {
       x: 0,
       y: 0

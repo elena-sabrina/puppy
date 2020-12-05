@@ -8,7 +8,6 @@ class Food {
     this.y = y;
     this.width = 40;
     this.height = 40;
-    this.color = "blue";
     this.previousFoodtiming = 0;
   }
 

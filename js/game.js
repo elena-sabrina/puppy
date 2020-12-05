@@ -4,19 +4,19 @@ class Game {
     this.context = canvas.getContext("2d");
     this.keyboardController = new KeyboardController(this);
     this.keyboardController.setKeyBindings();
-    this.gamespeed = 0.5;
+    this.gamespeed = 1;
 
     this.restore();
   }
 
   restore() {
-    this.layerFour = new LayerFour (this,0);
-    this.layerOne = new LayerOne (this,0);
-    this.layerTwo = new LayerTwo (this,0);
-    this.layerThree = new LayerThree (this,0);
-    
+    this.layerFour = new LayerFour(this, 0);
+    this.layerOne = new LayerOne(this, 0);
+    this.layerTwo = new LayerTwo(this, 0);
+    this.layerThree = new LayerThree(this, 0);
+
     this.puppy = new Puppy(this);
-    // this.bike = new Bike(this);
+    this.bike = new Bike(this);
     this.obsticalArray = [];
     this.foodArray = [];
     this.monkeyArray = [];
@@ -55,8 +55,8 @@ class Game {
           this.canvas.height / 4,
           this.canvas.height - 30
         ),
-        this.getRandomArbitrary(30, 100),
-        30
+        this.getRandomArbitrary(50, 100),
+        40
       );
       this.obsticalArray.push(obstical);
       this.previousObsticaltiming = timeNow;
@@ -93,7 +93,7 @@ class Game {
     }
   }
 
-  addFoodonObject() {
+  /*addFoodonObject() {
     const timeNow = Date.now();
     if (timeNow > this.previousFoodtiming + 5000) {
       for (let obstical of this.obsticalArray) {
@@ -105,6 +105,20 @@ class Game {
         this.foodArray.push(food);
         this.previousFoodtiming = timeNow;
       }
+    }
+  }*/
+
+  addFood() {
+    const timeNow = Date.now();
+    var obsticalWithfood = this.obsticalArray[this.obsticalArray.length - 1];
+    if (timeNow > this.previousFoodtiming + 2000) {
+      const food = new Food(
+        this,
+        canvasElement.width,
+        obsticalWithfood.y - obsticalWithfood.height
+      );
+      this.foodArray.push(food);
+      this.previousFoodtiming = timeNow;
     }
   }
 
@@ -239,12 +253,12 @@ class Game {
   runLogic() {
     this.addGravity();
     this.stopGravityonObjects();
-    
+
     this.addObstical();
     for (let obstical of this.obsticalArray) {
       obstical.runLogic();
     }
-    this.addFoodonObject();
+    this.addFood();
     for (let food of this.foodArray) {
       food.runLogic();
       this.collectFood();
@@ -259,13 +273,13 @@ class Game {
     this.layerFour.runLogicFour();
     this.puppy.runLogic();
 
-   /* for (let layer of this.+) {
+    /* for (let layer of this.+) {
       backgroundImages[i].runLogic();
     }
 */
-   // for (let layer of this.backgroundImages)
+    // for (let layer of this.backgroundImages)
     this.clearTrash();
-    // this.GameoverScenarioBike();
+    this.GameoverScenarioBike();
     this.GameOverScenarioMonkey();
   }
 
@@ -287,7 +301,6 @@ class Game {
     }
     this.puppy.draw();
     this.puppy.drawLifestatus();
-    
-    //this.bike.draw();
+    this.bike.draw();
   }
 }
