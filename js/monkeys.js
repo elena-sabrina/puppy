@@ -1,5 +1,5 @@
 const monkeyImage = new Image();
-monkeyImage.src = "/images/monkey/monkey-sprite.png";
+monkeyImage.src = "/images/monkey/monkey-sprite-new.png";
 
 class Monkey {
   constructor(game, x, y, width, height) {
@@ -16,7 +16,6 @@ class Monkey {
 
   runLogic() {
     this.x -= this.game.gamespeed;
-
   }
 
   /*draw() {
@@ -33,10 +32,10 @@ class Monkey {
 
     this.game.context.drawImage(
       monkeyImage,
-      140 * this.position,
+      97.6 * this.position,
       0,
-      140,
-      140,
+      97.6,
+      156,
       this.x,
       this.y,
       this.width,
