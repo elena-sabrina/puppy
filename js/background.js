@@ -5,16 +5,17 @@ imageUrls.push(`/images/background/layers/2.png`);
 imageUrls.push(`/images/background/layers/3.png`);
 imageUrls.push(`/images/background/layers/4.png`);
 
-const backgroundLayers = imageUrls.map((url) => {
+const backgroundImages = imageUrls.map((url) => {
   const image = new Image();
   image.src = url;
   return image;
 });
 
+console.log(backgroundImages);
+
 class Background {
   constructor(game) {
     this.game = game;
-    this.position = 0;
   }
 
   /*runLogic() {
@@ -27,11 +28,10 @@ class Background {
 
   draw() {
     const context = this.game.context;
-    for (let i = 0; i < backgroundLayers.length; i++) {
-      //for (let layer of backgroundLayers) {
-      const layer = backgroundLayers[i];
-      this.position -= 0.5;
-      context.drawImage(layer, this.position, 0, 800, 400);
+     for (let i = 0; i < backgroundImages.length; i++) {
+       //const layer = backgroundLayers[i];
+       context.drawImage(backgroundImages[i], 0, 0, 800, 400);
+
     }
   }
 }
