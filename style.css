@@ -37,6 +37,21 @@ h1 {
   font-size: 40px;
   margin: 0 0 10px 0;
   padding: 0;
+  
+}
+
+#h1animation {
+  text-transform: uppercase;
+  animation: glow 1.5s ease-in-out infinite alternate;
+}
+ 
+@keyframes glow {
+    from {
+      text-shadow: 0 0 10px white;
+    }
+    to {
+      text-shadow: 0 0 20px  white, 0 0 10px  white;
+    }
 }
 
 p {
@@ -82,7 +97,7 @@ button {
 }
 
 button:hover {
-  color: black !important;
+  color: #ccb69c !important;
   letter-spacing: 1px;
   background: none;
   transition: all 0.3s ease 0s
