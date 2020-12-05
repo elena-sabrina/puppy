@@ -14,7 +14,8 @@ class LayerOne {
   }
 
   runLogicOne() {
-    this.x -= this.game.gamespeed;
+    //this.x -= this.game.gamespeed; // animation-case
+    this.x = 0; //oneimage-case
   }
 
   drawloopOne() {

@@ -11,10 +11,10 @@ class KeyboardController {
             this.game.puppy.y -= 40;
             break;
           case "ArrowLeft":
-            this.game.puppy.x -= 20;
+            this.game.puppy.x -= 40;
             break;
           case "ArrowRight":
-            this.game.puppy.x += 20;
+            this.game.puppy.x += 40;
             break;
         }
       }

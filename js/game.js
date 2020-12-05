@@ -10,10 +10,10 @@ class Game {
   }
 
   restore() {
-    this.layerFour = new LayerFour(this, 0);
+    //this.layerFour = new LayerFour(this, 0);
     this.layerOne = new LayerOne(this, 0);
-    this.layerTwo = new LayerTwo(this, 0);
-    this.layerThree = new LayerThree(this, 0);
+    //this.layerTwo = new LayerTwo(this, 0);
+    //this.layerThree = new LayerThree(this, 0);
 
     this.puppy = new Puppy(this);
     this.bike = new Bike(this);
@@ -163,11 +163,9 @@ class Game {
       ) {
         var indexToRemove = this.foodArray.indexOf(food);
         if (indexToRemove > -1) {
-          console.log(indexToRemove);
-          console.log(this.foodArray.length);
           this.foodArray.splice(indexToRemove, 1);
         }
-        this.puppy.food += 1;
+        this.puppy.food += 10;
       }
     }
   }
@@ -228,9 +226,10 @@ class Game {
     }
   }
 
-  Levelup() {
+  youWin() {
     if (this.puppy.food >= 100) {
-      this.active = 2;
+      this.active = 1;
+      console.log("you win");
     }
   }
 
@@ -268,9 +267,9 @@ class Game {
       monkey.runLogic();
     }
     this.layerOne.runLogicOne();
-    this.layerTwo.runLogicTwo();
-    this.layerThree.runLogicThree();
-    this.layerFour.runLogicFour();
+    //this.layerTwo.runLogicTwo();
+    //this.layerThree.runLogicThree();
+    //this.layerFour.runLogicFour();
     this.puppy.runLogic();
 
     /* for (let layer of this.+) {
@@ -281,14 +280,15 @@ class Game {
     this.clearTrash();
     this.GameoverScenarioBike();
     this.GameOverScenarioMonkey();
+    this.youWin();
   }
 
   draw() {
     this.clear();
     this.layerOne.drawOne();
-    this.layerTwo.drawTwo();
-    this.layerThree.drawThree();
-    this.layerFour.drawFour();
+    //this.layerTwo.drawTwo();
+    //this.layerThree.drawThree();
+    //this.layerFour.drawFour();
 
     for (let monkey of this.monkeyArray) {
       monkey.draw();
