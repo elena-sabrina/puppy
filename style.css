@@ -20,7 +20,6 @@ body {
   background-position: center;
   background-repeat: no-repeat;
   background-size: 800px;
-  padding: 0;
   border-radius: 1%;
   box-shadow: 0px 0px 20px#dbc6ae;
   margin: 100px 0 40px 0;
@@ -47,7 +46,7 @@ p {
 
 .woodboarder {
   border: solid 14px #dbc6ae;
-  padding: 0;
+  padding: 0px;
   border-radius: 1%;
   box-shadow: 0px 0px 20px#dbc6ae;
   margin: 100px 0px 50px 0px;

@@ -1,4 +1,7 @@
 const biteSound = new Audio("/sound/bite.wav");
+const gameoverSoundMonkey = new Audio("/sound/gameover.wav");
+const gameoverSoundBike = new Audio("/sound/gameover.wav");
+const gamewonSound = new Audio("/sound/gamewon.wav");
 
 class Game {
   constructor(canvas) {
@@ -20,10 +23,12 @@ class Game {
     this.puppy = new Puppy(this);
     this.bike = new Bike(this);
     this.obsticalArray = [];
+    //this.foodscoreArray = [];
     this.foodArray = [];
     this.monkeyArray = [];
     this.gravity = 10;
     this.previousObsticaltiming = 0;
+    this.previousFoodScoretiming = 0;
     this.previousFoodtiming = 0;
     this.previousMonkeytiming = 0;
     this.active = 0;
@@ -58,7 +63,7 @@ class Game {
           this.canvas.height - this.puppy.speed.y
         ),
         this.getRandomArbitrary(50, 100),
-        40
+        30
       );
       this.obsticalArray.push(obstical);
       this.previousObsticaltiming = timeNow;
@@ -169,9 +174,25 @@ class Game {
         }
         this.puppy.food += 10;
         biteSound.play();
+       // this.addFoodScore(this.food.x, this.food.y);
       }
     }
   }
+
+
+  /*addFoodScore (xposition, yposition) {
+    const timeNow = Date.now();
+    if (timeNow > this.previousFoodScoretiming + 5000) {
+      const foodscore = new Obstical(
+        this,
+        xposition,
+        yposition
+      );
+      this.foodscoreArray.push(foodscore);
+      this.previousObsticaltiming = timeNow;
+    }
+  }*/
+
 
   // MONKEY
 
@@ -195,6 +216,7 @@ class Game {
       this.bike.position.x + this.bike.size.x >= this.puppy.x &&
       this.bike.position.y - this.bike.size.y <= this.puppy.y
     ) {
+      gameoverSoundBike.play();
       this.active = 1;
     }
   }
@@ -224,11 +246,7 @@ class Game {
         this.checkCollisionBetweentwoObjects(monkey, puppyRightTopCorner)
       ) {
         this.active = 1;
-        console.log("game over monkey");
-        screenStartElement.style.display = "none";
-        screenPlayElement.style.display = "none";
-        screenGameOverElement.style.display = "none";
-        screenGameWonElement.style.display = "none";
+        gameoverSoundMonkey.play();
       }
     }
   }
@@ -236,7 +254,7 @@ class Game {
   youWin() {
     if (this.puppy.food >= 100) {
       this.active = 1;
-      console.log("you win");
+      gamewonSound.play();
     }
   }
 
@@ -273,6 +291,9 @@ class Game {
     for (let monkey of this.monkeyArray) {
       monkey.runLogic();
     }
+    //for (let foodscore of this.foodscoreArray) {
+    //  foodscore.runLogic();
+    //}
     this.layerOne.runLogicOne();
     //this.layerTwo.runLogicTwo();
     //this.layerThree.runLogicThree();
@@ -306,6 +327,9 @@ class Game {
     for (let food of this.foodArray) {
       food.draw();
     }
+    //for (let foodscore of this.foodscoreArray) {
+    //  foodscore.draw();
+    //}
     this.puppy.draw();
     this.puppy.drawLifestatus();
     this.bike.draw();
