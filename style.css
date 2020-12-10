@@ -1,16 +1,34 @@
-@import url("https://fonts.googleapis.com/css2?family=Oxygen:wght@300;400;700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Lora&family=Mali:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital@1&display=swap');
 
 html,
 body {
-  font-family: "Open Sans", sans-serif;
+  font-family: 'Mali', cursive;
+  letter-spacing: 1.2px;
   display: flex;
   justify-content: center;
   align-items: center;
   margin: 0;
   padding: 0;
+  background-color: #ccb69c;
 }
 
+
+.intro {
+  color: white;
+  margin: 50px 0 50px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  max-width: 800px;
+}
+
+.cta {
+  max-width: 400px;
+}
 .woodboarder-without-canvas {
   width: 800px;
   height: 400px;
@@ -34,36 +52,39 @@ body {
 }
 
 h1 {
-  font-size: 40px;
-  margin: 0 0 10px 0;
+  font-family: 'Mali', cursive;
+  font-style: bold;
+  font-size: 60px;
+  font-weight: 100;
+  margin: 0 0 40px 0;
   padding: 0;
-  
+  color: white;
 }
 
-#h1animation {
-  text-transform: uppercase;
-  animation: glow 1.5s ease-in-out infinite alternate;
-}
- 
-@keyframes glow {
-    from {
-      text-shadow: 0 0 10px white;
-    }
-    to {
-      text-shadow: 0 0 20px  white, 0 0 10px  white;
-    }
+h2 {
+  font-size: 30px;
+  font-weight: 100;
+  letter-spacing: 2px;
+  margin: 60px 0 20px 0;
+  padding: 0;
+  color: white;
 }
 
 p {
+  font-size: 20px;
+  font-weight: 100;
   margin: 0;
-  padding: 5px 0 0 0;
+  padding: 20px 0 0 0;
+  line-height: 1.5;
+  text-align: center;
 }
+
 
 .woodboarder {
   border: solid 14px #dbc6ae;
   border-radius: 1%;
   box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
-  margin: 100px 0 50px 0;
+  margin: 10px 0 50px 0;
   padding: 0px;
   display: flex;
   justify-content: center;
@@ -74,30 +95,22 @@ p {
   color: rgba(255, 255, 255, 0.938);
 }
 
-.controllers{
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-
-}
 
 button {
   display: inline-block;
-  margin: 60px;
+  font-size: 20px;
+  color: white;
   align-items: center;
   border: none;
-  color: white;
-  font-size: 20px;
   margin: 10px;
-  background-color:#dbc6ae;
-  border-radius: 2%;
-  box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+  background-color:transparent;
   padding: 10px 15px;
   transition: all 0.3s ease 0s;
+    
 }
 
 button:hover {
-  color: #ccb69c !important;
+  color: #ffefdb !important;
   letter-spacing: 1px;
   background: none;
   transition: all 0.3s ease 0s
