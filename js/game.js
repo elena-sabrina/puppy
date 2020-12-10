@@ -9,7 +9,7 @@ class Game {
     this.context = canvas.getContext("2d");
     this.keyboardController = new KeyboardController(this);
     this.keyboardController.setKeyBindings();
-    this.gamespeed = 1;
+    this.gamespeed = 0;
 
     this.restore();
   }

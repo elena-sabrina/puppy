@@ -1,5 +1,5 @@
 const layerOneImage = new Image();
-layerOneImage.src = "/images/background/Cartoon_Forest_BG_03.png";
+layerOneImage.src = "/images/background/layers/3.png";
 
 class LayerOne {
   constructor(game, x) {
