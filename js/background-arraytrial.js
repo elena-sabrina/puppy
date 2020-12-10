@@ -11,7 +11,6 @@ const backgroundImages = imageUrls.map((url) => {
   return image;
 });
 
-console.log(backgroundImages);
 
 class Background {
   constructor(game) {
